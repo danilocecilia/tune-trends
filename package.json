@@ -1,11 +1,19 @@
 {
-  "name": "tune-trends",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "tune-trend",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
-  "author": "",
-  "license": "ISC"
+  "dependencies": {
+    "@next/font": "13.1.6",
+    "eslint": "8.34.0",
+    "eslint-config-next": "13.1.6",
+    "next": "13.1.6",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  }
 }
