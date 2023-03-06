@@ -1,14 +1,24 @@
-import './globals.css'
+'use client';
+
+import { SessionProvider } from 'next-auth/react';
+import { ChakraProvider } from '@chakra-ui/react';
+import Head from 'next/head';
+
+import './globals.css';
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      {/*
-        <head /> will contain the components returned by the nearest parent
-        head.js. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
-      */}
-      <head />
-      <body>{children}</body>
+      <Head>
+        <title>My Next.js App</title>
+        <meta name="description" content="A description of my app" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <body>
+        <ChakraProvider>
+          <SessionProvider>{children}</SessionProvider>
+        </ChakraProvider>
+      </body>
     </html>
-  )
+  );
 }
