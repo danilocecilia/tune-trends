@@ -1,14 +1,22 @@
-'use client';
-import Image from 'next/image';
+import { redirect } from 'next/navigation';
 import { Inter } from '@next/font/google';
-import styles from './page.module.css';
-import { useSession, signIn, signOut } from 'next-auth/react';
+import { getCurrentUser } from '@/lib/session';
+import { authOptions } from '@/lib/auth';
+// import styles from "./page.module.css";
+// import { useSession } from "next-auth/react";
+// import Login from "./login/page";
+// import { useApp } from "./hooks/useApp";
+import './globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
 
-export default function Home() {
-  const { data: session } = useSession();
-  console.log('session: ', session);
+export default async function App({ children }) {
+  // const app = useApp();
+  const user = await getCurrentUser();
 
-  return <main className={styles.main}></main>;
+  if (!user) {
+    redirect(authOptions?.pages?.signIn || '/login');
+  }
+
+  return <div>MAIN PAGE</div>;
 }
