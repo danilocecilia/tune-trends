@@ -3,10 +3,9 @@ import React from 'react';
 import { signIn } from 'next-auth/react';
 
 export const Login = () => {
-  debugger;
   const handleLogin = () => {
     signIn('spotify', {
-      callbackUrl: 'http://localhost:3000',
+      callbackUrl: 'http://localhost:3000/api/auth/callback',
     });
   };
 
